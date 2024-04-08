@@ -10,8 +10,8 @@ Autogen(マルチエージェント)で遊ぶ
 2. Dockerfile を準備（コピーした）
 3. `vscode>devcontainer: Open Folder in Container ...` を実行して、`.devcontainer`を選択
 4. 勝手にコンテナ実行が始まる
-   [!WARNING]
-   なぜか一度目はエラーが出て再試行させられる（原因不明）
+   > [!WARNING]
+   > なぜか一度目はエラーが出て再試行させられる（原因不明）
 5. コンテナ環境完成
 
 ### memo
