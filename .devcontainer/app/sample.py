@@ -18,19 +18,19 @@ system_message_b = "あなたは文法学習から始めるべきと主張しま
 system_message_c = "発音から始めるべきと主張します。他の主張に対して反論してください。回答は一言で。"
 
 agent_a = autogen.AssistantAgent(
-    name="assistant",
+    name="assistant1",
     system_message=system_message_a,
     llm_config=llm_config)
 
 
 agent_b = autogen.AssistantAgent(
-    name="assistant",
+    name="assistant2",
     system_message=system_message_b,
     llm_config=llm_config
 )
 
 agent_c = autogen.AssistantAgent(
-    name="assistant",
+    name="assistant3",
     system_message=system_message_c,
     llm_config=llm_config
 )
@@ -44,15 +44,16 @@ manager = autogen.GroupChatManager(groupchat=groupchat, llm_config=llm_config)
 
 manager.initiate_chat(manager, message="初心者が英語学習を始めるには何から着手すべきか議論して下さい")
 
-all_messages = manager.chat_messages[agent_a]
+# log output
+all_messages_a = manager.chat_messages[agent_a]
 
 
 # file output
 current_file_path = Path(__file__).resolve()
 
-parent_directory = current_file_path.parent
+parent_directory = current_file_path.parent.parent
 
 save_file = parent_directory / "conversation.json"
 
 with open(save_file, "w") as f:
-    json.dump(all_messages, f, indent=2, ensure_ascii=False)
+    json.dump(all_messages_a, f, indent=2, ensure_ascii=False)
